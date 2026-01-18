@@ -1,0 +1,29 @@
+@use './variables.scss' as *;
+
+// 3D Block Mixin
+@mixin block3d {
+  border-radius: $border-radius-3d;
+  transform-style: preserve-3d;
+  transition: transform $transition-base, box-shadow $transition-base;
+  box-shadow: $shadow-3d;
+  perspective: 1000px;
+  
+  &:hover {
+    transform: translateY(-5px) rotateX(2deg);
+    box-shadow: $shadow-3d-hover;
+  }
+}
+
+// Glow Effect Mixin
+@mixin glow($color: $fuschia-pink) {
+  box-shadow: $shadow-glow, $shadow-3d;
+  
+  &:hover {
+    box-shadow: 0 0 30px rgba($color, 0.7), $shadow-3d-hover;
+  }
+}
+
+// Gradient Background Mixin
+@mixin gradient-bg {
+  background: linear-gradient(135deg, $silver-black 0%, $technical-grey 100%);
+}
